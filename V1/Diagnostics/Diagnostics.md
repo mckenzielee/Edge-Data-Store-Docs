@@ -4,11 +4,11 @@ uid: EdgeDataStoreDiagnostics
 
 # Edge Data Store diagnostics
 
-Edge Data Store and its components produce diagnostics data which is stored locally in the Storage component, and may be queried locally and/or egressed to PI Web API endpoints or the OSIsoft Cloud Services.
+Edge Data Store and its components produce diagnostics data which is stored locally in the Storage component, and may be queried locally or egressed to PI Web API endpoints or the OSIsoft Cloud Services or both.
 
-Diagnostics data is stored within the 'diagnostics' namespace of Edge Storage.  Local access to this data is available via the [Sds](xref:sdsReadingData) methods.
+Diagnostics data is stored within the 'diagnostics' namespace of Edge Storage.  Local access to this data is available through the [Sds](xref:sdsReadingData) methods.
 
-## Egressing diagnostics data via PeriodicEgressEndpoints
+## Egress diagnostics data through PeriodicEgressEndpoints
 
 To egress diagnositcs related data, configure a periodic egress endpoint and specify ```diagnostics``` as the NamespaceId in the periodic egress endpoint configuration.
 
@@ -17,7 +17,7 @@ To egress diagnositcs related data, configure a periodic egress endpoint and spe
 Edge Data Store produces the following diagnostics streams:
 
 The Diagnostics.System dynamic type includes these values which are logged in a stream with the id System.Diagnostics.
-This diagnostic stream contains system level information related to the host platform that the Edge Data Store is running on.
+This diagnostic stream contains system level information related to the host platform that Edge Data Store is running on.
 
 | Type         | Property |  Description     |
 |--------|--------------|-----------------------------------|
@@ -36,7 +36,7 @@ This diagnostic stream contains system level information related to the host pla
 | double | StorageTotalSize (uom=MB)  | Total size of the storage medium in use by the Edge Data Store  |
 | double | StorageFreeSpace (uom=MB)  | Free space available  |
 
-## Edge EDS adapter diagnostics
+## EDS adapter diagnostics
 
 Each EDS adapter of the Edge Data Store produces its own diagnostics streams.
 
