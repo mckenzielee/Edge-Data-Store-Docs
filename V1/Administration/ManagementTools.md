@@ -22,7 +22,7 @@ Postman is an effective REST tool for systems with GUI components (Edge Data Sto
 
 ### C#, Python, Go
 
-You can use any modern programming language to make REST calls to administer and write programs for Edge Data Store. Since the administrative and programming interfaces are unified in using REST, you can write applications that both manage Edge Data Store and read and write data. If you want you can, for example, access the Dianostics namespace locally to monitor and act upon the local system state.
+You can use any modern programming language to make REST calls to administer and write programs for Edge Data Store. Since the administrative and programming interfaces are unified in using REST, you can write applications that both manage Edge Data Store and read and write data. If you want you can, for example, access the Diagnostics namespace locally to monitor and act upon the local system state.
 
 ### System Tools
 
