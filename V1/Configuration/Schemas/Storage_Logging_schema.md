@@ -18,43 +18,8 @@ The Storage logging configuration schema specifies how to formally describe the 
 | [LogFileSizeLimitBytes](#logfilesizelimitbytes) | `integer` | Optional | Yes      | EdgeLoggerConfiguration (this schema) |
 | [LogLevel](#loglevel)                           | reference | Optional | No       | EdgeLoggerConfiguration (this schema) |
 
-## LogFileCountLimit
 
-`LogFileCountLimit`
-
-- is optional
-- type: `integer`
-- defined in this schema
-
-### LogFileCountLimit type
-
-`integer`, nullable
-
-## LogFileSizeLimitBytes
-
-`LogFileSizeLimitBytes`
-
-- is optional
-- type: `integer`
-- defined in this schema
-
-### LogFileSizeLimitBytes type
-
-`integer`, nullable
-
-## LogLevel
-
-`LogLevel`
-
-- is optional
-- type: reference
-- defined in this schema
-
-### LogLevel type
-
-- []() – `#/definitions/EdgeLogLevel`
-
-**All** of the following _requirements_ need to be fulfilled.
+**Note:** All of the following _requirements_ need to be fulfilled.
 
 #### Requirement 1
 
