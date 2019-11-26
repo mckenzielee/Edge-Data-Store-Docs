@@ -1,0 +1,42 @@
+<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:axf="http://www.antennahouse.com/names/XSL/Extensions">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>PI Data Archive System Management Guide</title>
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="stylesheet" type="text/css" href="webhelplayout.css"><script language="javascript" type="text/javascript" src="searchdata.js" charset="UTF-8"></script><script language="javascript">
+					function isValidContextPath(path) {
+					if (path.length == 0) {
+					return false;
+					}
+					
+					for (var i = 0; i < SearchFiles.length; i++) {
+					if (path == SearchFiles[i]) {
+					return true;
+					}
+					}
+					}
+					
+					var newPath;
+					
+					function LoadFrame()
+					{
+					  var path = document.location.hash.substring( 1 );
+					
+					  if(isValidContextPath(path)) {
+	  					newPath = path;
+				        window.setTimeout(setPath, 15);
+					  }
+					}
+					
+					function setPath() {
+				      window.contentwin.location.href = encodeURI(newPath);
+				    }
+				</script></head>
+   <frameset onload="LoadFrame();" rows="80,*">
+      <frame name="headerwin" src="header.html" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" noresize>
+      <frameset cols="325,*" borderColor="#e0e0e0" frameborder="1">
+         <frame name="navigationwin" src="toc.html" scrolling="auto" frameborder="0" marginwidth="0" marginheight="0" target="contentwin" borderColor="#e0e0e0" style="overflow:auto">
+         <frame name="contentwin" src="start.html" frameborder="0" marginwidth="6" marginheight="0" borderColor="#e0e0e0" style="overflow:auto">
+      </frameset>
+   </frameset>
+</html>
