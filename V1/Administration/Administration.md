@@ -74,7 +74,7 @@ An HTTP status 204 message indicates success.
 
 ### Start an EDS adapter
 
-To start an individual EDS adapter, use any REST client and make a request using the following:
+To start an EDS adapter, use any REST client and make a request using the following:
 
 ```http
 Method: POST
