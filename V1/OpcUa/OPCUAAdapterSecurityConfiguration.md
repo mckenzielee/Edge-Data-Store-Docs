@@ -57,4 +57,3 @@ Linux: `/usr/share/OSIsoft/EdgeDataStore/{ComponentId}/Certificates/Trusted/cert
 Windows: `%programdata%\OSIsoft\EdgeDataStore\{ComponentId}\Certificates`
 
 Linux: `/usr/share/OSIsoft/EdgeDataStore/{ComponentId}/Certificates`
-
