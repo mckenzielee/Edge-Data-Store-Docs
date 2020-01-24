@@ -3,7 +3,7 @@ uid: scalePerformance
 ---
 
 # Design considerations
-Before you install EDS, you need to determine your storage and throughput needs so that you select devices that meet your needs.
+Before you install EDS, you need to determine your storage and throughput needs so that you select devices that meet your needs. yadda yadda
 
 ## Edge Storage role
 
