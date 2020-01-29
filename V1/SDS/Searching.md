@@ -24,8 +24,6 @@ The searchable properties are listed in the following table.
 | InterpolationMode | No          |
 | ExtrapolationMode | No          |
 | PropertyOverrides | No          |
-| [Tags](xref:sdsStreamExtra)*   | Yes |
-| [Metadata](xref:sdsStreamExtra)* | Yes |
 
 Searching for streams is possible using the REST API and specifying the optional `query` parameter, as shown here:
 
@@ -34,8 +32,6 @@ GET api/v1/Tenants/default/Namespaces/{namespaceId}/Streams?query={query}&skip={
 ```
 
 The Stream fields valid for search are identified in the fields table located on the [Streams](xref:sdsStreams) page. 
-
-**Note:** Stream Metadata has unique syntax rules. For more information, see [How Searching Works: Stream Metadata](#Stream_Metadata_search_topic).
 
 Searching for types
 =====================
@@ -186,60 +182,3 @@ Other operators examples
 ``mud AND (NOT log)`` | mud | mud log
 ``mud AND (log OR pump*)`` | mud log<br>mud pumps | mud bath
 ``name:stream* AND (description:pressure OR description:pump)`` | The name starts with "stream" and the description includes either term "pressure" or term "pump" |
-
-## <a name="Stream_Metadata_search_topic">How Searching Works: Stream Metadata</a>
-
-[Stream Metadata](xref:sdsStreamExtra) modifies the aforementioned search syntax rules and each operator's behavior is described below. For example, assume that a namespace contains the following streams and the respective metadata key-value pair(s) for each stream.
-
-**streamId** | **Metadata**
------------- | ---------
-stream1      | { manufacturer, company }<br>{ serial, abc }
-stream2      | { serial, a1 }
-stream3      | { status, active }<br>{ second key, second value }
-
-: Operator
--------------------
-
-A stream metadata key is only searchable in association with a stream metadata value. This pairing is defined using the same field scoping ``':'`` operator, like
-
-```text
-myStreamMetadataKey:streamMetadataValue
-```
-
-If the ``':'`` operator is not used within an individual search clause, metadata keys are not searched against. Instead, metadata values are searched against (along with the other searchable Stream fields).
-
-**QueryString**     | **Streams returned**
-------------------  | ----------------------------------------
-``manufacturer:company``  | Only stream1 returned.
-``company``  | Only stream1 returned.
-``a*``  | All three streams returned.
-
-**Request**
-The following examples shows the ``':'`` operator.
-
-```text
-GET api/v1/Tenants/default/Namespaces/{namespaceId}/Streams?query=manufacturer:company
-```
-
-\* Operator
--------------------
-
-For searching on metadata values, the ``'*'`` character is again used as a wildcard to specify an incomplete string. Additionally,
-you can use this wildcard character with the metadata key as well. This is not supported for any other "fields". If you include a wildcard in a field (defined as a value to the immediate left of a ``':'`` operator), the query will only be valid against stream metadata.
-
-**QueryString**     | **Streams returned**
-------------------  | ----------------------------------------
-``manufa*turer:compan*``  | Only stream1 returned.
-``ser*al:a*``  | Stream1 and stream2 are returned.
-``s*:a*``  | All three streams returned.
-``Id:stream*``  |  All three streams returned.
-``Id*:stream*``  | Nothing returned.
-
-**Note:** In the final example nothing matches on a stream's Id value because including ``'*'`` in a search clause's field prevents non-stream metadata fields from being searched.
-
-**Request**
-The following examples shows the ``'*'`` operator.
-
-```text
-GET api/v1/Tenants/default/Namespaces/{namespaceId}/Streams?query=manufa*turer:compan*
-```
